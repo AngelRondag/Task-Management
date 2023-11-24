@@ -1,5 +1,4 @@
 #root {
     height: 100%;
-    background: rgb(253,231,225);
     background: radial-gradient(circle, rgba(253,231,225,0.8799894957983193) 0%, rgba(255,255,255,1) 100%);
 }
