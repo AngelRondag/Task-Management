@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setTasks } from "../../redux/actions";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,14 +7,30 @@ import { FaArrowCircleLeft as IconBack } from "react-icons/fa";
 
 const CreateTask = () => {
     const dispatch = useDispatch();
-    const allTasks = useSelector(state => state.tasks);
     const navigate = useNavigate();
 
     const [toDo, setToDo] = useState({
         pogress: false,
         title: '',
-        description: ''
+        description: '',
+        time: ''
     });
+
+
+    const getTime = () => {
+        const date = new Date();
+
+        let hours = date.getHours();
+        const minutes = date.getMinutes();
+        let format = "AM";
+
+        if (hours > 12) {
+            hours -= 12;
+            format = "PM";
+        }
+        return `${hours}:${minutes} ${format}`
+
+    }
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -26,14 +42,24 @@ const CreateTask = () => {
         }));
     };
 
+    const capitalizeWord = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     const saveTask = () => {
-            dispatch(setTasks(toDo))
-            setToDo({
-                pogress: false,
-                title: '',
-                description: ''
-            })
-            navigate('/home')
+        dispatch(setTasks({
+            ...toDo,
+            title: capitalizeWord(toDo.title),
+            description: capitalizeWord(toDo.description),
+            time: getTime()
+        }))
+        setToDo({
+            pogress: false,
+            title: '',
+            description: '',
+            time: ''
+        })
+        navigate('/home')
     };
 
     const goToBack = () => {

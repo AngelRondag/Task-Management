@@ -9,6 +9,7 @@ const ListTask = ({ tasks, message }) => {
                     pogress={task.pogress}
                     title={task.title}
                     description={task.description}
+                    time={task.time}
                 />
             )) : <p className='text-gray-600 w-4/5 text-center mt-10'>{message}</p>
             }
