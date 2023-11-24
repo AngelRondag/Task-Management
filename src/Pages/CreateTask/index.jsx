@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setTask } from "../../redux/actions";
+import { setTasks } from "../../redux/actions";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonTask } from "../../Components/ButtonTask";
@@ -27,18 +27,13 @@ const CreateTask = () => {
     };
 
     const saveTask = () => {
-        const taskRepeat = allTasks.find(task => task.title === toDo.title)
-        if (!taskRepeat) {
-            dispatch(setTask(toDo))
+            dispatch(setTasks(toDo))
             setToDo({
                 pogress: false,
                 title: '',
                 description: ''
             })
             navigate('/home')
-        } else {
-            alert('repeated task, try it with another thask  ')
-        }
     };
 
     const goToBack = () => {

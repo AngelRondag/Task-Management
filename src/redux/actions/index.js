@@ -1,11 +1,16 @@
-import { SET_ALL_TASKS, SET_TASK } from "./types";
+import { DELETE_TASK, SET_POGRESS, SET_TASKS } from "./types";
 
-export const setTask = (payload) => ({
-    type: SET_TASK,
+export const setTasks = (payload) => ({
+    type: SET_TASKS,
     payload
-})
+});
 
-export const setAllTasks = (payload) => ({
-    type: SET_ALL_TASKS,
+export const setPogress = (payload) => ({
+    type: SET_POGRESS,
     payload
-})
+}); 
+
+export const deleteTask = (payload) => ({
+    type: DELETE_TASK,
+    payload
+})  

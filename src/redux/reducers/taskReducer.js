@@ -1,25 +1,47 @@
-import { SET_ALL_TASKS, SET_TASK } from "../actions/types";
+import { DELETE_TASK, SET_POGRESS, SET_TASKS } from "../actions/types";
 
+const TASKS_V1 = 'TASKS_V1';
 const initialState = {
-    tasks: []
+    tasks: JSON.parse(localStorage.getItem(TASKS_V1)) || []
 };
 
 const taskReducer = (state = initialState, action) => {
 
+    let newState;
     switch (action.type) {
-        case SET_TASK:
-            return {
+
+        case SET_TASKS:
+            newState = {
                 ...state,
                 tasks: [...state.tasks, action.payload]
             }
-        case SET_ALL_TASKS:
-            return {
+            break
+
+        case SET_POGRESS:
+            newState = {
                 ...state,
-                tasks: action.payload
+                tasks: state.tasks.map(task =>
+                    task.title === action.payload.title
+                        ? { ...task, pogress: !task.pogress }
+                        : task
+                )
             }
+            break
+
+        case DELETE_TASK:
+            newState = {
+                ...state,
+                tasks: state.tasks.filter(task =>
+                    task.title !== action.payload
+                )
+            }
+            break
+
         default:
-            return state;
+            newState = state;
     }
+    localStorage.setItem(TASKS_V1, JSON.stringify(newState.tasks))
+    return newState
 }
 
 export { taskReducer }
