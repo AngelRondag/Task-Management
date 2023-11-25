@@ -66,14 +66,14 @@ const CreateTask = () => {
 
     return (
         <div className='h-full'>
-            <div className='flex h-full  flex-col items-center gap-8'>
+            <div className='flex h-full max-full flex-col items-center gap-8'>
                 <span className='absolute top-5 left-5' onClick={goToBack}>
                     <IconBack color={'gray'} size={'1.4rem'} />
                 </span>
                 <h1 className='text-center text-lg font-bold mt-4'>Add Todo</h1>
 
                 <label
-                    className='flex flex-col w-4/5 h-14 bg-white p-3 text-gray-500 text-xs border shadow-sm rounded-lg'
+                    className='flex flex-col w-4/5 max-w-md h-14 bg-white p-3 text-gray-500 text-xs border shadow-sm rounded-lg'
                     color='gray'
                 >Title
                     <input
@@ -86,7 +86,7 @@ const CreateTask = () => {
                 </label>
 
                 <label
-                    className='flex flex-col w-4/5 h-30 bg-white p-3 text-gray-500 text-xs border shadow-sm rounded-lg'
+                    className='flex flex-col w-4/5 h-32 max-w-md bg-white p-3 text-gray-500 text-xs border shadow-sm rounded-lg'
                 >Description
                     <textarea
                         className='w-full h-full bg-transparent text-sm font-normal text-secondary outline-none'
