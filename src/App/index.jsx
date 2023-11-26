@@ -11,8 +11,8 @@ const AppRoutes = () => {
     {path: '/', element: <WelcomePage />},
     {path: '/home', element: <Home />},
     {path: '/create-task', element: <CreateTask />},
-    {path: 'completed', element: <TasksCompleted />},
-    {path: 'in-pogress', element: <TasksInPogress />},
+    {path: '/completed', element: <TasksCompleted />},
+    {path: '/in-pogress', element: <TasksInPogress />},
   ])
   return routes
 }
