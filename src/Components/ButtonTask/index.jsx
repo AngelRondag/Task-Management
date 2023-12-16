@@ -1,9 +1,9 @@
-
-const ButtonTask = ({ content, onClick }) => {
+const ButtonTask = ({ content, onClick,background,color,disabled }) => {
 
     return (
         <button
-            className=' w-11/12 mx-1 py-2 max-w-lg  bg-primary rounded-xl text-white font-semibold fixed bottom-3'
+            disabled={disabled}
+            className={`w-2/3 mx-1 py-2 max-w-sm ${background} ${color} rounded-lg text-sm font-semibold shadow-md`}
             onClick={onClick}
         >
             {content}

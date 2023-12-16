@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
-import { ShowTasks } from "../../Components/ShowTasks";
+import { DisplayTasks } from "../../Components/DisplayTasks";
 
 const TasksCompleted = () => {
     const allTasks = useSelector(state => state.tasks);
-    const tasksFiltered = allTasks.filter( task => task.pogress);
+    const tasksFiltered = allTasks.filter(task => task.pogress);
 
     return (
         <>
-            <ShowTasks
-                title={'Tasks in pogress'}
+            <DisplayTasks
+                title={'Tasks Completed'}
+                taskStatus={true}
+                message={'No task completed'}
                 tasks={tasksFiltered}
-                message={'there are no tasks completed 😒'}
             />
         </>
     )

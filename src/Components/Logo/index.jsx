@@ -1,4 +1,3 @@
-
 import image from '../../../public/static/logo-sm.png';
 
 const Logo = () => {

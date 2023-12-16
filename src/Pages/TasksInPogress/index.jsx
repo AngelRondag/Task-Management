@@ -1,21 +1,20 @@
 import { useSelector } from "react-redux";
-import { ShowTasks } from "../../Components/ShowTasks";
-
+import { DisplayTasks } from "../../Components/DisplayTasks";
 
 const TasksInPogress = () => {
     const allTasks = useSelector(state => state.tasks);
-    const tasksFiltered = allTasks.filter( task => !task.pogress);
+    const tasksFiltered = allTasks.filter(task => !task.pogress);
 
     return (
         <>
-            <ShowTasks
-                title={'Tasks in pogress'}
+            <DisplayTasks
+                title={'Tasks In Pogress'}
+                taskStatus={true}
+                message={'No task in pogress'}
                 tasks={tasksFiltered}
-                message={'there are no tasks in progress at the moment 😎'}
             />
         </>
     )
-
 }
 
 export { TasksInPogress };

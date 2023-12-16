@@ -1,15 +1,15 @@
-import { ShowTasks } from "../../Components/ShowTasks";
 import { useSelector } from "react-redux";
+import { DisplayTasks } from "../../Components/DisplayTasks";
 
 const Home = () => {
     const allTasks = useSelector(state => state.tasks);
-
     return (
         <>
-            <ShowTasks
+            <DisplayTasks
                 title={`Today's tasks`}
+                taskStatus={true}
                 tasks={allTasks}
-                message={'Add To-do to list'}
+                message={'Add Task to List'}
             />
         </>
     )

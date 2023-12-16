@@ -1,4 +1,12 @@
-import { DELETE_TASK, SET_POGRESS, SET_TASKS, REPEATED_TASK,SET_MESSAGE } from "./types";
+import {
+    DELETE_TASK,
+    SET_POGRESS,
+    SET_TASKS,
+    REPEATED_TASK,
+    SET_MESSAGE,
+    UPDATE_TASK,
+
+} from "./types";
 
 export const setTasks = (payload, tasks) => {
     const repeatedTask = tasks.find(task => payload.title === task.title);
@@ -16,9 +24,9 @@ export const setTasks = (payload, tasks) => {
 
 }
 export const setMessage = (payload) => ({
-    type:SET_MESSAGE,
+    type: SET_MESSAGE,
     payload
-})
+});
 
 export const setPogress = (payload) => ({
     type: SET_POGRESS,
@@ -28,4 +36,9 @@ export const setPogress = (payload) => ({
 export const deleteTask = (payload) => ({
     type: DELETE_TASK,
     payload
-})  
+});
+
+export const updateTask = (payload) => ({
+    type: UPDATE_TASK,
+    payload
+});

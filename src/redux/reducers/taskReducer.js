@@ -1,9 +1,17 @@
-import { DELETE_TASK, REPEATED_TASK, SET_MESSAGE, SET_POGRESS, SET_TASKS } from "../actions/types";
+import {
+    DELETE_TASK,
+    REPEATED_TASK,
+    SET_MESSAGE,
+    SET_POGRESS,
+    SET_TASKS,
+    UPDATE_TASK,
+} from "../actions/types";
 
 const TASKS_V1 = 'TASKS_V1';
 const initialState = {
     tasks: JSON.parse(localStorage.getItem(TASKS_V1)) || [],
     displayMesaage: false,
+    searchValue: '',
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -15,17 +23,18 @@ const taskReducer = (state = initialState, action) => {
             newState = {
                 ...state,
                 tasks: [...state.tasks, action.payload],
-                displayMesaage:''
+                displayMesaage: ''
             }
-            break
+            break;
 
         case REPEATED_TASK:
             newState = {
                 ...state,
                 displayMesaage: true
             }
-            break
-        case SET_MESSAGE: 
+            break;
+
+        case SET_MESSAGE:
             newState = {
                 ...state,
                 displayMesaage: action.payload
@@ -41,13 +50,24 @@ const taskReducer = (state = initialState, action) => {
                         : task
                 )
             }
-            break
+            break;
 
         case DELETE_TASK:
             newState = {
                 ...state,
                 tasks: state.tasks.filter(task =>
                     task.title !== action.payload
+                )
+            }
+            break;
+
+        case UPDATE_TASK:
+            newState = {
+                ...state,
+                tasks: state.tasks.map(task =>
+                    task.id === action.payload.id
+                        ? action.payload
+                        : task
                 )
             }
             break
