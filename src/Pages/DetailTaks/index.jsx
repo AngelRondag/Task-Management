@@ -37,12 +37,12 @@ const DetailTask = () => {
             {taskFound &&
                 <div className='h-full flex justify-center '>
                     <div className='w-5/6 max-w-sm mt-[4rem] h-3/4 rounded-lg bg-white shadow-lg relative overflow-auto '>
-                        <span
-                            className='absolute top-4 left-4'
+                        <button
+                            className='w-10 h-10 flex justify-center items-center absolute top-1 left-1'
                             onClick={handleBack}
                         >
                             <IoIosArrowBack />
-                        </span>
+                        </button>
                         <div className='flex flex-row  gap-2 items-center absolute top-4 right-4' >
                             <span
                                 className={taskFound.pogress ? btnCompleted : btnInPogress}
@@ -70,7 +70,7 @@ const DetailTask = () => {
                         <div className=' w-full flex justify-center gap-4 absolute bottom-5'>
                             <button
                                 onClick={handleEdit}
-                                className='flex justify-center  items-center gap-2 w-24 h-auto bg-customPurple-100 text-cust-primary rounded-lg text shadow-md shadow-green-500/20'
+                                className='flex justify-center  items-center gap-2 w-24 h-auto bg-customPurple-100 text-cust-primary rounded-lg text shadow-md shadow-purple-500/20'
                             >
                                 <TbEdit />
                                 <p className='text-sm'>Edit</p>

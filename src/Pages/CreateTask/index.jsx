@@ -115,12 +115,12 @@ const CreateTask = ({ id }) => {
     return (
         <div className='h-full'>
             {id && (
-                <span
+                <button 
                     onClick={handleBack}
-                    className='absolute top-5 left-5'
+                    className='w-10 h-10  justify-center items-center flex absolute top-2 left-2'
                 >
                     <IoIosArrowBack />
-                </span>
+                </button>
             )}
             <div className='flex flex-col items-center gap-4 pb-16'>
                 <h1 className='text-center text-lg font-bold mt-4'>Add Todo</h1>

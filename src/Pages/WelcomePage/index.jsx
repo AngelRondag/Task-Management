@@ -24,7 +24,7 @@ const WelcomePage = () => {
                 <ButtonTask
                     content={`Let's start`}
                     onClick={goToHome}
-                    background={'bg-primary'}
+                    background={'bg-cust-primary'}
                     color={'text-white'}
                 />
             </div>
