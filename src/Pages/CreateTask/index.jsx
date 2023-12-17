@@ -122,7 +122,7 @@ const CreateTask = ({ id }) => {
                     <IoIosArrowBack />
                 </button>
             )}
-            <div className='flex flex-col items-center gap-4 pb-16'>
+            <div className='flex flex-col items-center gap-4 pb-24'>
                 <h1 className='text-center text-lg font-bold mt-4'>Add Todo</h1>
                 <div className='w-4/5 max-w-md'>
                     <div
