@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { GrTasks } from "react-icons/gr";
 import { FaPlus } from "react-icons/fa6";
-
 import styles from './NavigationApp.module.css'
 
 const NavigationApp = () => {
-
 
     const navigationItems = [
         { id: 0, icon: <FaPlus />, path: '/create-task' },
