@@ -6,9 +6,12 @@ import { CreateTask } from '../Pages/CreateTask'
 import {TasksInPogress} from '../Pages/TasksInPogress'
 import {TasksCompleted} from '../Pages/TasksCompleted'
 import { SearchTask } from '../Pages/SearchTask'
+
 import { NavigationApp } from '../Components/NavigationApp'
 import { DetailTask } from '../Pages/DetailTaks'
 import { UpdateTask } from '../Pages/UpdateTask'
+import { Calculator } from '../Pages/Calculator'
+import {Settings} from '../Pages/Settings'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -20,6 +23,8 @@ const AppRoutes = () => {
     {path: '/search-task', element: <SearchTask />},
     {path: '/task/:id',element: <DetailTask />},
     {path: '/update/:id', element: <UpdateTask />},
+    {path: '/calculator', element: <Calculator />},
+    {path: '/settings', element: <Settings />},
   ])
   return routes
 }

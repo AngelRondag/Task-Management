@@ -1,17 +1,29 @@
+
 import {
     DELETE_TASK,
     REPEATED_TASK,
     SET_MESSAGE,
     SET_POGRESS,
     SET_TASKS,
+    TOGGLE_NAVIGATION_ITEMS,
     UPDATE_TASK,
 } from "../actions/types";
 
 const TASKS_V1 = 'TASKS_V1';
+const NAVIGATION_ITEMS = 'NAVIGATION_ITEMS';
+const items = [
+    { id: 0, display: false, icon: 'IoCalculator', path: '/calculator' },
+    { id: 1, display: true, icon: 'FaPlus', path: '/create-task' },
+    { id: 2, display: true, icon: 'GrTasks', path: '/tasks/all' },
+    { id: 3, display: true, icon: 'FaSearch', path: '/search-task' },
+    { id: 4, display: true, icon: 'IoMdSettings', path: '/settings' },
+]
+
 const initialState = {
     tasks: JSON.parse(localStorage.getItem(TASKS_V1)) || [],
     displayMesaage: false,
     searchValue: '',
+    navigationItems: JSON.parse(localStorage.getItem(NAVIGATION_ITEMS)) || items
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -71,11 +83,22 @@ const taskReducer = (state = initialState, action) => {
                 )
             }
             break
+        case TOGGLE_NAVIGATION_ITEMS:
+            newState = {
+                ...state,
+                navigationItems: state.navigationItems.map(item =>
+                    item.id === action.payload
+                        ? { ...item, display: !item.display }
+                        : item
+                )
+            }
+            break
 
         default:
             newState = state;
     }
     localStorage.setItem(TASKS_V1, JSON.stringify(newState.tasks))
+    localStorage.setItem(NAVIGATION_ITEMS, JSON.stringify(newState.navigationItems))
     return newState
 }
 

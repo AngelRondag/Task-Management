@@ -5,6 +5,7 @@ import {
     REPEATED_TASK,
     SET_MESSAGE,
     UPDATE_TASK,
+    TOGGLE_NAVIGATION_ITEMS,
 
 } from "./types";
 
@@ -21,7 +22,6 @@ export const setTasks = (payload, tasks) => {
             type: REPEATED_TASK,
         }
     }
-
 }
 export const setMessage = (payload) => ({
     type: SET_MESSAGE,
@@ -42,3 +42,8 @@ export const updateTask = (payload) => ({
     type: UPDATE_TASK,
     payload
 });
+
+export const toggleNavigationItems = (payload) => ({
+    type: TOGGLE_NAVIGATION_ITEMS,
+    payload
+})
