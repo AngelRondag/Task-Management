@@ -19,7 +19,7 @@ const ListTask = ({ tasks, message }) => {
     }, [])
 
     return (
-        <div className='flex flex-col w-full max-w-2xl items-center gap-6 mt-10 mb-20'>
+        <div className='flex flex-col w-full max-w-xl items-center gap-6 mt-10 mb-20'>
             {showNotification && <p className={styles.notification}>{'Oops! This Task is Already Registered'}</p>}
             {tasks.length > 0
                 ? tasks.map(task => (
