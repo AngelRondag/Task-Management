@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { FaSearch } from "react-icons/fa";
-import { GrTasks } from "react-icons/gr";
+import { SiHomeadvisor } from "react-icons/si";
 import { FaPlus } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { IoCalculator } from "react-icons/io5";
-import styles from './NavigationApp.module.css'
+import styles from './NavigationApp.module.css';
 
 const NavigationApp = () => {
     const navigationItems = useSelector(state => state.navigationItems)
     const iconItems = {
         FaSearch: <FaSearch />,
-        GrTasks: <GrTasks />,
+        SiHomeadvisor: <SiHomeadvisor />,
         FaPlus: <FaPlus />,
         IoMdSettings: <IoMdSettings />,
         IoCalculator: <IoCalculator />,
@@ -31,10 +31,7 @@ const NavigationApp = () => {
                             </li>
                         )
                     }
-                }
-
-
-                )}
+                })}
             </ul>
         </div>
     )

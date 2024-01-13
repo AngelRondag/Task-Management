@@ -3,7 +3,7 @@ import { IoBriefcase } from "react-icons/io5";
 import { CgMore } from "react-icons/cg";
 import { MdDescription } from "react-icons/md";
 
-const TaskIcon = ({ type }) => {
+const TaskIcon = ({ type,size }) => {
 
     const background = {
         'Unspecified': 'bg-[#f2eeee]',
@@ -20,11 +20,10 @@ const TaskIcon = ({ type }) => {
         'Daily Study': <FaBook color='#FF9142' />,
         'Welfare': <FaHeartbeat color='#6D84DB ' />,
         'Description': <MdDescription color='#616161'/>
-
     }
 
     return (
-        <span className={`${background[type]} inline-block p-1.5 rounded-md text-center text-sm`}>
+        <span className={`${background[type]} inline-block p-1.5 rounded-md text-center ${size}`}>
             {iconTypes[type]}
         </span>
     )

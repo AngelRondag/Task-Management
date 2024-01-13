@@ -6,7 +6,7 @@ const WelcomePage = () => {
 
     const navigate = useNavigate();
     const goToHome = () => {
-        navigate('/tasks/all')
+        navigate('/home')
     }
 
     return (

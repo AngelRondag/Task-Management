@@ -9,13 +9,13 @@ import {
 
 } from "./types";
 
-export const setTasks = (payload, tasks) => {
-    const repeatedTask = tasks.find(task => payload.title === task.title);
+export const setTasks = (allTasks, newTasks, typeGroup,) => {
+    const repeatedTask = allTasks.find(task => task.title === newTasks.title);
 
     if (!repeatedTask) {
         return {
             type: SET_TASKS,
-            payload
+            payload: { typeGroup, newTasks, allTasks }
         }
     } else {
         return {
@@ -47,3 +47,4 @@ export const toggleNavigationItems = (payload) => ({
     type: TOGGLE_NAVIGATION_ITEMS,
     payload
 })
+

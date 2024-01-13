@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, setPogress } from '../../redux/actions';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -8,41 +8,39 @@ import { TaskDescription } from '../../Components/TaskCard/TaskDescription';
 import { IoIosTime as IconTime, IoIosArrowBack } from "react-icons/io";
 import { MdDelete } from 'react-icons/md';
 import { TbEdit } from 'react-icons/tb';
+import { ToBack } from '../../Components/ToBack';
 
 const DetailTask = () => {
     const btnCompleted = 'bg-green-100 text-green-700  text-[11px]  px-1 rounded-lg';
     const btnInPogress = 'text-center bg-orange-100 text-orange-600  text-[11px] px-1 rounded-lg';
 
-    const { id } = useParams();
-    const tasks = useSelector(state => state.tasks);
+    const storeTasks = useSelector(state => state.storeTasks);
+    const { id, taskGroup } = useParams();
+    const tasks = storeTasks[taskGroup].tasks;
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const taskFound = tasks.find(task => task.id === id)
+    const taskFound = tasks.find(task => task.id === id);
     const handlePogress = () => {
         dispatch(setPogress(taskFound));
     }
-    const handleBack = () => {
-        navigate(-1);
-    }
+
     const handleDelete = () => {
-        dispatch(deleteTask(taskFound.title));
+        dispatch(deleteTask(taskFound));
         navigate(-1);
     }
     const handleEdit = () => {
         navigate(`/update/${id}`);
     }
+
     return (
         <>
             {taskFound &&
-                <div className='h-full flex justify-center '>
-                    <div className='w-5/6 max-w-sm mt-[4rem] h-3/4 rounded-lg bg-white shadow-lg relative overflow-auto '>
-                        <button
-                            className='w-10 h-10 flex justify-center items-center absolute top-1 left-1'
-                            onClick={handleBack}
-                        >
-                            <IoIosArrowBack />
-                        </button>
+                <div className='h-full flex flex-col items-center  '>
+                    <h1 className='text-center font-bold mt-4 text-lg'>Task Detail</h1>
+                    <ToBack path={-1} />
+                    <div className='w-5/6 max-w-sm mt-6 h-3/4 rounded-lg bg-white shadow-lg relative overflow-auto '>
                         <div className='flex flex-row  gap-2 items-center absolute top-4 right-4' >
                             <span
                                 className={taskFound.pogress ? btnCompleted : btnInPogress}
@@ -56,7 +54,7 @@ const DetailTask = () => {
                             </span>
                         </div>
 
-                        <div className='flex flex-col gap-5 mx-6 mt-16'>
+                        <div className='flex flex-col gap-4 mx-6 mt-16'>
                             <TaskGroup type={taskFound.taskGroup} />
                             <TaskTitle
                                 title={taskFound.title}

@@ -1,7 +1,8 @@
 import { TaskStatus } from "../TaskStatus"
 import { ListTask } from "../ListTask"
 
-const DisplayTasks = ({ title, taskStatus, tasks, message }) => {
+const DisplayTasks = ({ tasks, title, taskStatus, message }) => {
+
     return (
         <div className='flex flex-col items-center'>
             {title &&

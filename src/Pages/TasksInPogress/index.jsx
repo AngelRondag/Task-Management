@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
+import { getTasks } from '../../redux/getTasks'
 import { DisplayTasks } from "../../Components/DisplayTasks";
 
 const TasksInPogress = () => {
-    const allTasks = useSelector(state => state.tasks);
+    const allTasks = getTasks();
     const tasksFiltered = allTasks.filter(task => !task.pogress);
 
     return (

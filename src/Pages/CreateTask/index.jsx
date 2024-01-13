@@ -1,22 +1,27 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setTasks } from "../../redux/actions";
 import { updateTask } from '../../redux/actions';
 import { TaskIcon } from '../../Components/TaskIcon';
 import { ButtonTask } from "../../Components/ButtonTask";
-import { IoIosArrowBack } from 'react-icons/io';
 import { FaAngleDown as DowmIcon, FaCircleExclamation } from "react-icons/fa6";
 import { v4 as uuidv4 } from "uuid";
 import { validateInputs } from './validate';
+import { getTasks } from '../../redux/getTasks';
+import { ToBack } from '../../Components/ToBack';
 
-const CreateTask = ({ id }) => {
+const CreateTask = ({ id, }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const allTasks = useSelector(state => state.tasks);
+
+    const allTasks = getTasks()
+
     const [showMenu, setShowMenu] = useState(false);
     const [errors, setErrors] = useState({ title: 'The field cannot be empty' });
+
+
     const task = allTasks.find(task => task?.id === id) || {
         id: '',
         title: '',
@@ -55,10 +60,6 @@ const CreateTask = ({ id }) => {
     const handleIconDown = () => {
         setShowMenu(!showMenu)
     }
-    const handleBack = () => {
-        navigate(-1)
-    }
-
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -79,7 +80,6 @@ const CreateTask = ({ id }) => {
         { type: 'Welfare' },
         { type: 'Daily Study' },
         { type: 'Unspecified' },
-
     ]
 
     const saveTask = () => {
@@ -94,20 +94,23 @@ const CreateTask = ({ id }) => {
             if (errors.title) {
                 return
             }
-            dispatch(setTasks({
-                ...toDo,
-                id: generatorUUID(),
-                title: capitalizeWord(toDo.title),
-                description: capitalizeWord(toDo.description ? toDo.description : 'No description'),
-                time: getTime()
-            }, allTasks))
-            setToDo({
+
+            const clearTodo = {
                 id: '',
                 title: '',
                 description: '',
                 time: '',
                 pogress: false,
-            })
+            }
+            const task = {
+                ...toDo,
+                id: generatorUUID(),
+                title: capitalizeWord(toDo.title),
+                description: capitalizeWord(toDo.description ? toDo.description : 'No description'),
+                time: getTime()
+            }
+            dispatch(setTasks(allTasks, task, toDo.taskGroup));
+            setToDo(clearTodo);
             navigate('/tasks/all');
         };
     }
@@ -115,12 +118,7 @@ const CreateTask = ({ id }) => {
     return (
         <div className='h-full'>
             {id && (
-                <button 
-                    onClick={handleBack}
-                    className='w-10 h-10  justify-center items-center flex absolute top-2 left-2'
-                >
-                    <IoIosArrowBack />
-                </button>
+                <ToBack path={-1} />
             )}
             <div className='flex flex-col items-center gap-4 pb-24'>
                 <h1 className='text-center text-lg font-bold mt-4'>Add Todo</h1>
@@ -198,7 +196,5 @@ const CreateTask = ({ id }) => {
         </div>
     )
 };
-
-const h = 0
 
 export { CreateTask }; 

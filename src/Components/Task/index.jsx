@@ -10,13 +10,13 @@ const Task = ({
     time,
     id,
 }) => {
+    
     const btnCompleted = 'w-auto flex items-center justify-center bg-green-200 text-green-700  text-xxs  px-1 rounded-lg absolute bottom-4 right-4';
     const btnInPogress = 'w-auto flex items-center justify-center bg-orange-100 text-orange-600  text-xxs px-1 rounded-lg absolute bottom-4 right-4';
-
-    const navigate = useNavigate()
-
+    
+    const navigate = useNavigate();
     const handleTask = () => {
-        navigate(`/task/${id}`);
+        navigate(`/task/${taskGroup}/${id}`);
     }
 
     return (

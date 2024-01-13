@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { DisplayTasks } from '../../Components/DisplayTasks';
 import { CiSearch } from "react-icons/ci";
+import { getTasks } from '../../redux/getTasks'
 
 const SearchTask = () => {
     const [tasks, setTasks] = useState([]);
+
     const [value, setValue] = useState('');
-    const storeTasks = useSelector(state => state.tasks);
+    const allTasks = getTasks()
 
     useEffect(() => {
-        setTasks(storeTasks);
+        setTasks(allTasks);
     }, [])
 
     const handleInput = (event) => {
