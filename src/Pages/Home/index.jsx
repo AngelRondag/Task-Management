@@ -38,14 +38,16 @@ const Home = () => {
                         <button className='bg-white text-cust-primary text-sm font-semibold py-1 px-4 rounded-lg'>View Task</button>
                     </Link>
                 </div>
-                <div className='grid place-items-center '>
-                    <PercentCircle
-                        bgColor={'#8764FF'}
-                        lineColor={'#EEE9FF '}
-                        textColor={'white'}
-                        pogress={pogress}
-                        size={85}
-                    />
+                <div className=' w-ful h-full flex justify-center items-center'>
+                    <div className='w-24 h-24 flex justify-center items-center'>
+                        <PercentCircle
+                            bgColor={'#8764FF'}
+                            lineColor={'#EEE9FF '}
+                            textColor={'white'}
+                            pogress={pogress}
+                            size={25}
+                        />
+                    </div>
                 </div>
             </div>
 

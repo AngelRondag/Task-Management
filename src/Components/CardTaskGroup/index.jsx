@@ -27,7 +27,7 @@ const CardTaskGroup = ({ type, bgColor, lineColor }) => {
                     <p className='text-xxs text-cust-intermediate'>{totalTask} Tasks</p>
                 </div>
             </div>
-            <div>
+            <div className='w-12 h-12'>
                 <PercentCircle pogress={pogress} bgColor={bgColor} lineColor={lineColor} size={45} />
             </div>
         </>
