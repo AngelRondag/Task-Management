@@ -17,8 +17,11 @@ const CardTaskGroup = ({ type, bgColor, lineColor }) => {
     }
 
     return (
-        <>
-            <div className="flex gap-4" onClick={handleTypeGroup}>
+        <div
+            className='w-full px-4 py-3 flex justify-between bg-white mb-3 rounded-xl shadow-md'
+            onClick={handleTypeGroup}
+        >
+            <div className="flex gap-4">
                 <div className='flex items-center'>
                     <TaskIcon type={type} size={'text-xl'} />
                 </div>
@@ -30,7 +33,7 @@ const CardTaskGroup = ({ type, bgColor, lineColor }) => {
             <div className='w-12 h-12'>
                 <PercentCircle pogress={pogress} bgColor={bgColor} lineColor={lineColor} size={45} />
             </div>
-        </>
+        </div>
     )
 }
 

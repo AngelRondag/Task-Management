@@ -56,16 +56,12 @@ const Home = () => {
                 <div className='flex flex-col items-center  mx-auto'>
                     {
                         taskGroup.map(({ type, bgColor, lineColor }) => (
-                            <div
-                                className='w-full px-4 py-3 flex justify-between bg-white mb-3 rounded-xl shadow-md'
+                            <CardTaskGroup
                                 key={type}
-                            >
-                                <CardTaskGroup
-                                    type={type}
-                                    bgColor={bgColor}
-                                    lineColor={lineColor}
-                                />
-                            </div>
+                                type={type}
+                                bgColor={bgColor}
+                                lineColor={lineColor}
+                            />
                         ))
                     }
                 </div>
