@@ -37,7 +37,7 @@ const SearchTask = () => {
                 >
                     <input
                         value={value}
-                        placeholder='filer your To-do'
+                        placeholder='Filter your To-do'
                         onChange={handleInput} name='search'
                         type='text'
                         className='w-full p-2 outline-none'
