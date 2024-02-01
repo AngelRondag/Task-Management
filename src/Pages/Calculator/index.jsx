@@ -52,7 +52,7 @@ const Calculator = () => {
     ]
     
     return (
-        <div>
+        <div className='h-full'>
             <h2 className='text-lg font-bold text-center mt-4'>Calculator</h2>
             <div className={styles.container}>
                 <form className={styles.form} name='calculator'>

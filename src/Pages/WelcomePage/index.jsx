@@ -5,8 +5,8 @@ import { Logo } from '../../Components/Logo';
 const WelcomePage = () => {
 
     const navigate = useNavigate();
-    const goToHome = () => {
-        navigate('/home')
+    const goProfile = () => {
+        navigate('/profile')
     }
 
     return (
@@ -23,7 +23,7 @@ const WelcomePage = () => {
             <div className='flex justify-center w-full absolute bottom-3 '>
                 <ButtonTask
                     content={`Let's start`}
-                    onClick={goToHome}
+                    onClick={goProfile}
                     background={'bg-cust-primary'}
                     color={'text-white'}
                 />

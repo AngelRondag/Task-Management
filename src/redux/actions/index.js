@@ -6,6 +6,7 @@ import {
     SET_MESSAGE,
     UPDATE_TASK,
     TOGGLE_NAVIGATION_ITEMS,
+    CREATE_PROFILE,
 
 } from "./types";
 
@@ -48,3 +49,7 @@ export const toggleNavigationItems = (payload) => ({
     payload
 })
 
+export const createProfile = (payloda) => ({
+    type: CREATE_PROFILE,
+    payload: payloda
+})

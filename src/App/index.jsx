@@ -1,4 +1,3 @@
-import './App.css'
 import { useRoutes, useLocation } from 'react-router-dom'
 import { WelcomePage } from '../Pages/WelcomePage'
 import { AllTasks } from '../Pages/AllTasks'
@@ -13,10 +12,13 @@ import { Calculator } from '../Pages/Calculator'
 import { Settings } from '../Pages/Settings'
 import { Home } from '../Pages/Home'
 import { Tasks } from '../Pages/Tasks'
+import { Profile } from '../Pages/Profile'
+import './App.css'
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <WelcomePage /> },
+    { path: '/profile', element: <Profile /> },
     { path: '/home', element: <Home /> },
     { path: '/tasks/:type', element: <Tasks /> },
     { path: '/tasks/all', element: <AllTasks /> },
@@ -39,7 +41,8 @@ function App() {
   return (
     <>
       <AppRoutes />
-      {pathname !== '/' && <NavigationApp />}
+      {(pathname !== '/' && pathname !== '/profile') && <NavigationApp />}
+      
     </>
   )
 }

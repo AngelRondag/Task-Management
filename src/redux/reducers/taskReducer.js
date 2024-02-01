@@ -1,4 +1,5 @@
 import {
+    CREATE_PROFILE,
     DELETE_TASK,
     REPEATED_TASK,
     SET_MESSAGE,
@@ -28,8 +29,10 @@ const storeTasks = {
 }
 
 const profile = {
+    username: '',
+    lastName: '',
     avatar: 'https://robohash.org/1?size=100x100',
-    name: 'User'
+    numAvatar: 1,
 }
 
 const initialState = {
@@ -136,6 +139,11 @@ const taskReducer = (state = initialState, action) => {
                         ? { ...item, display: !item.display }
                         : item
                 )
+            }
+            break
+        case CREATE_PROFILE : 
+        newState = {
+            ...state, profile: action.payload
             }
             break
 
