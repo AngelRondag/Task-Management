@@ -13,7 +13,7 @@ const ToBack = ({ path }) => {
             className='w-10 h-10 flex justify-center items-center absolute top-2 left-2'
             onClick={handleBack}
         >
-            <IoIosArrowBack />
+            <IoIosArrowBack size={20} />
         </button>
     )
 }

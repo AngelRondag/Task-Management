@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { DisplayTasks } from '../../Components/DisplayTasks';
 import { CiSearch } from "react-icons/ci";
 import { getTasks } from '../../redux/getTasks'
+import { useTranslation } from 'react-i18next';
 
 const SearchTask = () => {
+    const { t } = useTranslation("global");
     const [tasks, setTasks] = useState([]);
 
     const [value, setValue] = useState('');
@@ -27,7 +29,7 @@ const SearchTask = () => {
 
         <>
             <div className='flex justify-center items-center gap-2 mt-4'>
-                <h1 className='text-center font-bold  text-lg'>Search your Task</h1>
+                <h1 className='text-center font-bold  text-lg'>{t("title.search")}</h1>
                 <span className='px-1.5 py-0.5 text-xs bg-purple-200 text-cust-primary font-semibold  rounded-full'>{searchedTasks.length}</span>
             </div>
             <form className='flex justify-center relative mt-6'>
@@ -37,7 +39,7 @@ const SearchTask = () => {
                 >
                     <input
                         value={value}
-                        placeholder='Filter your To-do'
+                        placeholder={t("search.filter")}
                         onChange={handleInput} name='search'
                         type='text'
                         className='w-full p-2 outline-none'
@@ -48,7 +50,7 @@ const SearchTask = () => {
             <DisplayTasks
                 taskStatus={false}
                 tasks={searchedTasks}
-                message={'No results found'}
+                message={t("message.not_found")}
             />
         </>
     )

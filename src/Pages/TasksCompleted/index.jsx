@@ -1,16 +1,18 @@
 import { DisplayTasks } from "../../Components/DisplayTasks";
-import { getTasks } from '../../redux/getTasks'
+import { getTasks } from '../../redux/getTasks';
+import { useTranslation } from "react-i18next";
 
 const TasksCompleted = () => {
+    const { t } = useTranslation("global");
     const allTasks = getTasks();
     const tasksFiltered = allTasks.filter(task => task.pogress);
 
     return (
         <>
             <DisplayTasks
-                title={'Tasks Completed'}
+                title={t("title.tasks.completed")}
                 taskStatus={true}
-                message={'No task completed'}
+                message={t("message.no_tasks_completed")}
                 tasks={tasksFiltered}
             />
         </>

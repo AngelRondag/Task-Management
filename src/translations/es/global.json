@@ -1,0 +1,78 @@
+{
+    "title":{
+        "main":"Gestión de tareas y lista de tareas pendientes",
+        "create": "Añadir Tarea",
+        "calculator": "Calculadora",
+        "search": "Buscar tu tarea",
+        "settings": "Opciones",
+        "detail": "Detalles de la tarea",
+        "profile": "Perfil",
+        "edit": "Editar Tarea",
+        "tasks": {
+            "all": "Las tareas de hoy",
+            "in_progress": "Tareas en progreso",
+            "completed": "Tareas Completedas"        }
+    },
+    "main": {
+     "description": "¡Esta herramienta productiva está diseñada para ayudarte a administrar mejor tus tarea en cuanto a proyectos!",
+     "button": "Comenzar"
+    },
+    "home": {
+        "user": "Usuario",
+        "gretting": "Hola!",
+        "tab_progress": "¡No olvides completar tus tareas de hoy!",
+        "viewTask": "Ver tareas",
+        "task_group": "Grupos de tareas" 
+    },
+    "task_group": {
+        "work_project": "Poryecto de Trabajo",
+        "personal_project": "Proyecto Personal",
+        "welfare": "Salud",
+        "daily_study": "Estudio",
+        "unspecified": "Sin especificar"
+    },
+    "create": {
+        "mainTitle": "Añadir Tarea",
+        "title": "Título",
+        "description": "Descripción",
+        "message": "El campo no puede estar vacío",
+        "button": "Confirmar",
+        "tasks": "Tareas"
+    },
+    "search" : {
+        "filter": "Filtrar tu tarea"
+    },
+    "settings": {
+        "firstOption": "Mostrar calculadora en la app"
+     },
+     "message": {
+        "not_found": "No se encotraron resultados",
+        "no_tasks": "No hay tareas por el momento",
+        "add_asks":"Añade una tarea a la lista",
+        "no_tasks_progress": "Sin tareas en progreso",
+        "no_tasks_completed":"Sin tareas completadas",
+        "repeated_task": "¡Ups! Esta tarea ya está registrada"
+  
+     },
+     "tasks": {
+        "all": "Todos",
+        "in_progress": "En progreso",
+        "completed": "Completado",
+        "no_description": "Sin descripción"
+
+     },
+     "detail":{
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "in_progress": "Tarea en progreso",
+        "completed": "Tarea completada",
+        "description": "Descripción",
+        "task_group": "Grupo de tarea"
+     },
+     "profile":{
+        "name" : "Nombre",
+        "last_name": "Apellido",
+      "save": "Guardar"
+
+     }
+ }

@@ -2,6 +2,7 @@ import {
     CREATE_PROFILE,
     DELETE_TASK,
     REPEATED_TASK,
+    SET_LANGUAGE,
     SET_MESSAGE,
     SET_POGRESS,
     SET_TASKS,
@@ -9,9 +10,9 @@ import {
     UPDATE_TASK,
 } from "../actions/types";
 
-const TASKS_V1 = 'TASKS_V1';
-const PROFILE = 'PROFILE';
-const NAVIGATION_ITEMS = 'NAVIGATION_ITEMS';
+const TASKS = 'TASKS_V2';
+const PROFILE = 'PROFILE_V2';
+const NAVIGATION_ITEMS = 'NAVIGATION_ITEMS_V2';
 
 const items = [
     { id: 0, display: false, icon: 'IoCalculator', path: '/calculator' },
@@ -21,11 +22,11 @@ const items = [
     { id: 4, display: true, icon: 'IoMdSettings', path: '/settings' },
 ]
 const storeTasks = {
-    'Work Project': { tasks: [] },
-    'Personal Project': { tasks: [] },
-    'Welfare': { tasks: [] },
-    'Daily Study': { tasks: [] },
-    'Unspecified': { tasks: [] },
+    'work_project': { tasks: [] },
+    'personal_project': { tasks: [] },
+    'welfare': { tasks: [] },
+    'daily_study': { tasks: [] },
+    'unspecified': { tasks: [] },
 }
 
 const profile = {
@@ -36,11 +37,12 @@ const profile = {
 }
 
 const initialState = {
-    storeTasks: JSON.parse(localStorage.getItem(TASKS_V1)) || storeTasks,
+    storeTasks: JSON.parse(localStorage.getItem(TASKS)) || storeTasks,
     displayMesaage: false,
     searchValue: '',
     navigationItems: JSON.parse(localStorage.getItem(NAVIGATION_ITEMS)) || items,
-    profile: JSON.parse(localStorage.getItem(PROFILE)) || profile
+    profile: JSON.parse(localStorage.getItem(PROFILE)) || profile,
+    // language: JSON.parse(localStorage.getItem(LANGUAGE)) || "es"
 };
 
 const taskReducer = (state = initialState, action) => {
@@ -146,13 +148,19 @@ const taskReducer = (state = initialState, action) => {
             ...state, profile: action.payload
             }
             break
+        case SET_LANGUAGE: 
+         newState = {
+            ...state,
+            language: action.payload
+         }
 
         default:
             newState = state;
     }
-    localStorage.setItem(TASKS_V1, JSON.stringify(newState.storeTasks))
+    localStorage.setItem(TASKS, JSON.stringify(newState.storeTasks))
     localStorage.setItem(NAVIGATION_ITEMS, JSON.stringify(newState.navigationItems))
     localStorage.setItem(PROFILE, JSON.stringify(newState.profile))
+    // localStorage.setItem(LANGUAGE,JSON.stringify(newState.language))
     return newState
 }
 

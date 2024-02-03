@@ -9,8 +9,10 @@ import { IoIosTime as IconTime } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { TbEdit } from "react-icons/tb";
 import { ToBack } from "../../Components/ToBack";
+import { useTranslation } from "react-i18next";
 
 const DetailTask = () => {
+  const { t } = useTranslation("global");
   const btnCompleted =
     "bg-green-100 text-green-700  text-[11px]  px-1 rounded-lg";
   const btnInPogress =
@@ -40,12 +42,16 @@ const DetailTask = () => {
     <>
       {taskFound && (
         <div className="h-full flex flex-col items-center">
-          <h1 className="text-center font-bold mt-4 text-lg">Task Detail</h1>
+          <h1 className="text-center font-bold mt-4 text-lg">
+            {t("title.detail")}
+          </h1>
           <ToBack path={-1} />
           <div className="w-5/6 max-w-sm mt-6 h-3/4 rounded-lg bg-white shadow-lg relative overflow-auto ">
             <div className="flex flex-row  gap-2 items-center absolute top-4 right-4">
               <span className={taskFound.pogress ? btnCompleted : btnInPogress}>
-                {taskFound.pogress ? "Completed" : "In progress"}
+                {taskFound.pogress
+                  ? t("tasks.completed")
+                  : t("tasks.in_progress")}
               </span>
               <span className="flex items-center gap-1 text-cust-intermediate text-xxs font-normal">
                 <IconTime />
@@ -54,15 +60,18 @@ const DetailTask = () => {
             </div>
 
             <div className="flex flex-col gap-4 mx-6 mt-16">
-              <TaskGroup type={taskFound.taskGroup} />
+              <TaskGroup
+                type={taskFound.taskGroup}
+                content={taskFound.content}
+              />
               <TaskTitle
                 title={taskFound.title}
                 onClick={handlePogress}
                 pogress={taskFound.pogress}
               />
-              {taskFound.description !== "No description" && (
+              {taskFound.description.length > 0 && (
                 <TaskDescription
-                  type="Description"
+                  type="description"
                   description={taskFound.description}
                 />
               )}
@@ -73,14 +82,14 @@ const DetailTask = () => {
                 className="flex justify-center  items-center gap-2 w-24 h-auto bg-customPurple-100 text-cust-primary rounded-lg text shadow-md shadow-purple-500/20"
               >
                 <TbEdit />
-                <p className="text-sm">Edit</p>
+                <p className="text-sm">{t("detail.edit")}</p>
               </button>
               <button
                 onClick={handleDelete}
                 className="flex justify-center items-center gap-2 w-24 h-auto bg-red-200 text-[#d3458e] py-1 rounded-lg shadow-md shadow-red-500/20"
               >
                 <MdDelete />
-                <p className="text-sm">Delete</p>
+                <p className="text-sm">{t("detail.delete")}</p>
               </button>
             </div>
           </div>

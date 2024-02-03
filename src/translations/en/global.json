@@ -1,0 +1,78 @@
+{
+   "title":{
+      "main":"Task management and to-do list",
+      "create": "Add task",
+      "calculator": "Calculator",
+      "search": "Search Tasks",
+      "settings": "Settings",
+      "detail": "Task Details",
+      "profile": "Profile",
+      "edit": "Task Edit",
+      "tasks": {
+         "all": "Today's tasks",
+         "in_progress": "Tasks In Pogress",
+         "completed": "Tasks Completed"}
+  },
+   "main": {
+    "description": "This productive tool is designed to help you better manage your task project-wise conveniently!",
+    "button":"Let's start"
+   },
+   "home": {
+      "user": "User",
+      "gretting": "Hello!",
+      "tab_progress": "Don't forget to complete your tasks for today!",
+      "viewTask": "View Task",
+      "task_group": "Task Groups"
+      },
+  "task_group": {
+   "work_project": "Work Porject",
+   "personal_project": "Personal Project",
+   "welfare": "Welfare",
+   "daily_study": "Daily Study",
+   "unspecified": "Unspecified"
+   },
+   "create": {
+      "mainTitle": "Add Task",
+      "title": "Title",
+      "description": "Description",
+      "message": "The field cannot be empty",
+      "button": "Confirm",
+      "tasks": "Tasks"
+  },
+  "search" : {
+   "filter": "Filter your To-do"
+   },
+   "settings": {
+      "firstOption": "Show calculator in App"
+   },
+   "message": {
+      "not_found": "No results found",
+      "no_tasks": "There are no tasks",
+      "add_asks":"Add tasks to List",
+      "no_tasks_progress": "No tasks in progress",
+      "no_tasks_completed":"No tasks completed",
+      "repeated_task": "Oops! This Task is Already Registered"
+
+
+   },
+   "tasks": {
+      "all": "All",
+      "in_progress": "In progress",
+      "completed": "Completed",
+      "no_description": "No description"
+   },
+   "detail": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "description": "Description",
+      "in_progress": "Task in progress",
+      "completed": "Task completed",
+      "task_group": "Task Group"
+   },
+   "profile": {
+      "name" : "Name",
+      "last_name": "Last Name",
+      "save": "Save"
+   }
+
+ }

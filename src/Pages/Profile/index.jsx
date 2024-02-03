@@ -6,8 +6,10 @@ import { IoMdArrowDroprightCircle as ArrowRight } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToBack } from "../../Components/ToBack";
+import { useTranslation } from "react-i18next";
 
 const Profile = () => {
+  const { t } = useTranslation("global");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -57,7 +59,7 @@ const Profile = () => {
   return (
     <div className="flex flex-col items-center">
       <ToBack path="/home" />
-      <h2 className="mt-4 font-bold text-lg">Profile</h2>
+      <h2 className="mt-4 font-bold text-lg">{t("title.profile")}</h2>
       <div className="flex gap-3 mt-4">
         <button onClick={() => changeImage("-")}>
           <ArrowLeft size={25} color="#444" />
@@ -81,7 +83,7 @@ const Profile = () => {
             name="username"
             onChange={handleName}
             type="text"
-            placeholder="Name"
+            placeholder={t("profile.name")}
           />
         </div>
         <input
@@ -90,13 +92,13 @@ const Profile = () => {
           name="lastName"
           onChange={handleName}
           type="text"
-          placeholder="Last name"
+          placeholder={t("profile.last_name")}
         />
         <button
           className="w-4/5 p-2 mx-auto mt-5 rounded-md bg-cust-primary text-white"
           onClick={handleSubmit}
         >
-          Save
+          {t("profile.save")}
         </button>
       </div>
     </div>

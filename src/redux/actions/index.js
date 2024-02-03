@@ -7,6 +7,7 @@ import {
     UPDATE_TASK,
     TOGGLE_NAVIGATION_ITEMS,
     CREATE_PROFILE,
+    SET_LANGUAGE,
 
 } from "./types";
 
@@ -52,4 +53,10 @@ export const toggleNavigationItems = (payload) => ({
 export const createProfile = (payloda) => ({
     type: CREATE_PROFILE,
     payload: payloda
+})
+
+export const setlanguage = (payload) => ({
+    type: SET_LANGUAGE,
+    payload
+    
 })

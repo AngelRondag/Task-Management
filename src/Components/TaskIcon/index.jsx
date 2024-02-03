@@ -6,20 +6,20 @@ import { MdDescription } from "react-icons/md";
 const TaskIcon = ({ type,size }) => {
 
     const background = {
-        'Unspecified': 'bg-[#f2eeee]',
-        'Work Project': 'bg-[#FFE4F2]',
-        'Personal Project': 'bg-[#EDE4FF]',
-        'Daily Study': 'bg-[#FFE6D4]',
-        'Welfare': 'bg-[#E6EBFF]',
-        'Description': 'bg-[#EFEFEF]'
+        'unspecified': 'bg-[#f2eeee]',
+        'work_project': 'bg-[#FFE4F2]',
+        'personal_project': 'bg-[#EDE4FF]',
+        'daily_study': 'bg-[#FFE6D4]',
+        'welfare': 'bg-[#E6EBFF]',
+        'description': 'bg-[#EFEFEF]'
     }
     const iconTypes = {
-        'Unspecified': <CgMore color='#a7a7a7' />,
-        'Work Project': <IoBriefcase color='#F478B8' />,
-        'Personal Project': <FaUser color='#9260F4' />,
-        'Daily Study': <FaBook color='#FF9142' />,
-        'Welfare': <FaHeartbeat color='#6D84DB ' />,
-        'Description': <MdDescription color='#616161'/>
+        'unspecified': <CgMore color='#a7a7a7' />,
+        'work_project': <IoBriefcase color='#F478B8' />,
+        'personal_project': <FaUser color='#9260F4' />,
+        'daily_study': <FaBook color='#FF9142' />,
+        'welfare': <FaHeartbeat color='#6D84DB ' />,
+        'description': <MdDescription color='#616161'/>
     }
 
     return (

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 export const getTasks = (type) => {
     const storeTask = useSelector(state => state.storeTasks);
-
+    
     if (type) {
         return storeTask[type].tasks
     } else {

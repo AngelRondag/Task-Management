@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { getTasks } from "../../redux/getTasks";
 import { useSelector } from "react-redux";
 import { MdOutlineEditNote } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation("global");
   const navigate = useNavigate();
   const { avatar, username, lastName } = useSelector((state) => state.profile);
 
@@ -16,11 +18,31 @@ const Home = () => {
     totalTask === 0 ? 0 : Math.round((taskCompleted / totalTask) * 100);
 
   const taskGroup = [
-    { type: "Work Project", bgColor: "#FFE4F2", lineColor: "#F478B8" },
-    { type: "Personal Project", bgColor: "#EDE4FF", lineColor: "#9260F4" },
-    { type: "Welfare", bgColor: "#E6EBFF", lineColor: "#6D84DB" },
-    { type: "Daily Study", bgColor: "#FFE6D4", lineColor: "#FF9142" },
-    { type: "Unspecified", bgColor: "#f2eeee", lineColor: "#a7a7a7" },
+    {
+      type: "work_project",
+      bgColor: "#FFE4F2",
+      lineColor: "#F478B8",
+    },
+    {
+      type: "personal_project",
+      bgColor: "#EDE4FF",
+      lineColor: "#9260F4",
+    },
+    {
+      type: "welfare",
+      bgColor: "#E6EBFF",
+      lineColor: "#6D84DB",
+    },
+    {
+      type: "daily_study",
+      bgColor: "#FFE6D4",
+      lineColor: "#FF9142",
+    },
+    {
+      type: "unspecified",
+      bgColor: "#f2eeee",
+      lineColor: "#a7a7a7",
+    },
   ];
 
   const goProfile = () => {
@@ -34,22 +56,22 @@ const Home = () => {
           <img src={avatar} alt="avatar" />
         </figure>
         <div className="flex flex-col justify-center">
-          <p className="text-xs">Hello!</p>
-          <p className="font-semibold">{`${username? username:'User'} ${lastName}`}</p>
+          <p className="text-xs">{t("home.gretting")}</p>
+          <p className="font-semibold">{`${
+            username ? username : t("home.user")
+          } ${lastName}`}</p>
         </div>
         <button onClick={goProfile} className="absolute right-1 top-2">
-          <MdOutlineEditNote color='#444' size={25} />
+          <MdOutlineEditNote color="#444" size={25} />
         </button>
       </div>
 
       <div className="w-full h-32  max-w-md flex px-4 bg-cust-primary rounded-2xl shadow-lg">
         <div className="w-full flex flex-col justify-around items-start">
-          <p className="w-32 text-sm text-white ">
-            Your today's task almost done!
-          </p>
+          <p className="w-36 text-sm text-white ">{t("home.tab_progress")}</p>
           <Link to="/tasks/all">
             <button className="bg-white text-cust-primary text-sm font-semibold py-1 px-4 rounded-lg">
-              View Task
+              {t("home.viewTask")}
             </button>
           </Link>
         </div>
@@ -67,7 +89,7 @@ const Home = () => {
       </div>
 
       <div className="w-full">
-        <h3 className="font-semibold ml-4 my-5">Group Task</h3>
+        <h3 className="font-semibold ml-4 my-5">{t("home.task_group")}</h3>
         <div className="flex flex-col items-center  mx-auto">
           {taskGroup.map(({ type, bgColor, lineColor }) => (
             <CardTaskGroup

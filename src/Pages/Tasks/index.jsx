@@ -1,19 +1,21 @@
-import { DisplayTasks } from '../../Components/DisplayTasks';
-import { ToBack } from '../../Components/ToBack';
-import { getTasks } from '../../redux/getTasks'
-import { useParams } from 'react-router-dom';
+import { DisplayTasks } from "../../Components/DisplayTasks";
+import { ToBack } from "../../Components/ToBack";
+import { getTasks } from "../../redux/getTasks";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Tasks = () => {
-    const { type } = useParams();
+  const { t } = useTranslation("global");
+  const { type } = useParams();
 
-    const tasks = getTasks(type);
+  const tasks = getTasks(type);
 
-    return (
-        <div className=''>
-            <ToBack path={'/home'} />
-            <DisplayTasks title={type} tasks={tasks} message={'there are no tasks'} />
-        </div>
-    )
-}
+  return (
+    <div >
+      <ToBack path={"/home"} />
+      <DisplayTasks title={t(`task_group.${type}`)} tasks={tasks} message={t("message.no_tasks")} />
+    </div>
+  );
+};
 
-export { Tasks }
+export { Tasks };
